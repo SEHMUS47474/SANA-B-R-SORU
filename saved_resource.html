@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://web-sandbox.oaiusercontent.com/? -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sana bir şey demek istiyorum...">
+<meta property="og:title" content="Sana bir soru ❤️">
+<meta property="og:description" content="Görmek için bağlantıya tıkla...">
+<meta name="theme-color" content="#ff5f8f">
+<title>Sana bir soru ❤️</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{
+  min-height:100vh; overflow:hidden;
+  background:radial-gradient(circle at 50% 20%,#fff7fa 0,#ffe7ef 35%,#ffd0df 70%,#ffb7cc 100%);
+  color:#4a2130;
+}
+.page{min-height:100vh;display:grid;place-items:center;padding:24px;position:relative}
+.card{
+  width:min(92vw,560px); padding:38px 28px 34px; text-align:center;
+  background:rgba(255,255,255,.78); backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.9); border-radius:30px;
+  box-shadow:0 20px 60px rgba(128,39,74,.18); position:relative; z-index:3;
+}
+.heart-logo{font-size:64px;line-height:1;margin-bottom:12px;animation:pulse 1.7s infinite}
+h1{font-size:clamp(28px,7vw,48px);margin:8px 0 14px;line-height:1.08}
+p{font-size:18px;line-height:1.55;margin:0 auto 26px;max-width:440px;color:#704454}
+button,.share{
+  border:0;border-radius:999px;padding:14px 22px;font-size:17px;font-weight:700;
+  cursor:pointer;transition:.2s transform,.2s box-shadow,.2s background;
+  text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
+}
+button:active,.share:active{transform:scale(.97)}
+.primary{background:#ff5f8f;color:white;box-shadow:0 10px 24px rgba(255,95,143,.28)}
+.primary:hover{background:#ff477d;transform:translateY(-2px)}
+.choice{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.yes{background:#ff5f8f;color:#fff;min-width:130px}
+.no{background:#fff;color:#a65a70;border:2px solid #f3c3d1;min-width:130px}
+.screen{display:none}
+.screen.active{display:block}
+.share-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.share{font-size:14px;padding:11px 16px;background:#fff;color:#733246;border:1px solid #f0c5d2}
+.tiny{font-size:13px;color:#9a6979;margin-top:15px}
+.sad{font-size:78px;line-height:1;margin:5px 0 12px}
+.tears{animation:tear .8s ease-in-out infinite alternate}
+.heart{
+ position:fixed;left:var(--x);bottom:-50px;font-size:var(--s);z-index:2;
+ animation:floatUp var(--d) linear forwards;pointer-events:none;
+}
+.confetti{
+ position:fixed;left:50%;top:50%;z-index:5;pointer-events:none;
+ animation:burst 1.4s ease-out forwards;
+}
+#intro{animation:fadeIn .7s ease}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@keyframes tear{to{transform:translateY(5px)}}
+@keyframes burst{
+  from{transform:translate(-50%,-50%) scale(.2);opacity:1}
+  to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.1);opacity:0}
+}
+@media (max-width:480px){
+ .card{padding:30px 20px 28px;border-radius:24px}
+ p{font-size:16px}
+ button{width:100%}
+ .choice{display:grid}
+}
+</style>
+<style>html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;margin:0;padding:0}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.desktopSkybridge [data-openai-titlebar]{padding-left:calc(8px + var(--openai-titlebar-left-inset, 0px));padding-right:8px}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+<body>
+<main class="page">
+  <section class="card">
+    <div id="intro" class="screen active">
+      <div class="heart-logo">❤️</div>
+      <h1>Sana bir şey demek istiyorum...</h1>
+      <p>Görmek için aşağıdaki bağlantıya tıkla. Küçük bir sürpriz hazırladım. 💌</p>
+      <button class="primary" id="openBtn">Görmek için tıkla ✨</button>
+    </div>
+
+    <div id="question" class="screen">
+      <div class="heart-logo">💗</div>
+      <h1>Sana bir soru ❤️</h1>
+      <p>Birlikte güzel anılar biriktirelim mi? 🥹</p>
+      <div class="choice">
+        <button class="yes" id="yesBtn">Evet ❤️</button>
+        <button class="no" id="noBtn">Hayır</button>
+      </div>
+      <div class="share-row">
+        <button class="share" id="shareBtn">↗ Paylaş</button>
+        <button class="share" id="copyBtn">🔗 Bağlantıyı kopyala</button>
+      </div>
+      <div class="tiny" id="copyStatus"></div>
+    </div>
+
+    <div id="yesScreen" class="screen">
+      <div class="heart-logo">🥰</div>
+      <h1>Çok mutlu oldum! ❤️</h1>
+      <p>O zaman bu hikâyenin ilk sayfasını birlikte açıyoruz. ✨</p>
+      <button class="primary" id="moreHearts">Daha çok kalp gönder 💕</button>
+    </div>
+
+    <div id="noScreen" class="screen">
+      <div class="sad">🥺<span class="tears">💧</span></div>
+      <h1>Canın sağ olsun...</h1>
+      <p>Yine de yüzünde küçücük bir gülümseme bırakabildiysem ne mutlu bana. 🤍</p>
+      <button class="no" id="backBtn">Başa dön</button>
+    </div>
+  </section>
+</main>
+
+<script>
+const screens = ["intro","question","yesScreen","noScreen"];
+function show(id){
+  screens.forEach(s=>document.getElementById(s).classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+document.getElementById("openBtn").onclick=()=>show("question");
+document.getElementById("yesBtn").onclick=()=>{show("yesScreen"); hearts(42);};
+document.getElementById("moreHearts").onclick=()=>hearts(60);
+document.getElementById("noBtn").onclick=()=>show("noScreen");
+document.getElementById("backBtn").onclick=()=>show("question");
+
+function hearts(count=30){
+  for(let i=0;i<count;i++){
+    const el=document.createElement("div");
+    el.className="heart";
+    el.textContent=["🤍","❤️","💗","💕","💖"][Math.floor(Math.random()*5)];
+    el.style.setProperty("--x",Math.random()*100+"vw");
+    el.style.setProperty("--s",(18+Math.random()*28)+"px");
+    el.style.setProperty("--d",(3+Math.random()*4)+"s");
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),7500);
+  }
+  for(let i=0;i<22;i++){
+    const c=document.createElement("div");
+    c.className="confetti"; c.textContent="❤";
+    c.style.fontSize=(12+Math.random()*18)+"px";
+    c.style.setProperty("--dx",(Math.random()*500-250)+"px");
+    c.style.setProperty("--dy",(Math.random()*500-250)+"px");
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),1500);
+  }
+}
+
+document.getElementById("copyBtn").onclick=async()=>{
+  try{
+    await navigator.clipboard.writeText(location.href);
+    document.getElementById("copyStatus").textContent="Bağlantı kopyalandı! WhatsApp veya Instagram'dan gönderebilirsin. 💌";
+  }catch(e){
+    document.getElementById("copyStatus").textContent="Bağlantıyı adres çubuğundan kopyalayabilirsin.";
+  }
+};
+
+document.getElementById("shareBtn").onclick=async()=>{
+  const data={title:"Sana bir şey demek istiyorum ❤️",text:"Sana küçük bir sürpriz hazırladım. Görmek için tıkla 💌",url:location.href};
+  if(navigator.share){try{await navigator.share(data)}catch(e){}}
+  else{
+    await navigator.clipboard?.writeText(location.href);
+    document.getElementById("copyStatus").textContent="Bağlantı kopyalandı! WhatsApp veya Instagram'dan paylaşabilirsin.";
+  }
+};
+</script>
+
+</body></html>
